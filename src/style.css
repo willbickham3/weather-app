@@ -1,0 +1,44 @@
+html { 
+    background: url('./images/rainy.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    height: 100%;
+  }
+
+  /* Apply styles to the <body> element */
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif; /* Set a default font */
+    line-height: 1.6; /* Adjust line height for readability */
+    color: #333; /* Set a default text color */
+    height: 100%;
+  }
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    height: 100%;
+}
+
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+}
+
+.query-container {
+    display: flex;
+    grid-column: 2;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    border-radius: 7px;
+    font-size: 1.2em;
+}
