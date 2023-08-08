@@ -1,6 +1,9 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
+  "repository": {
+    "url": "git+https://github.com/{willbickham3}/{weather-app}.git"
+  },
   "description": "",
   "main": "bundle.js",
   "scripts": {
