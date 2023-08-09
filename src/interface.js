@@ -1,9 +1,6 @@
-function createAnElement(element, classList, innerHTML) {
-    const newElement = document.createElement(`${element}`);
-    newElement.classList.add(`${classList}`);
-    newElement.innerHTML = innerHTML;
-    return newElement
-}
+import getCurrentWeather from "./handleWeather/CurrentWeather";
+import getForecast from "./handleWeather/forecast";
+import createAnElement from "./components/createAnElement";
 
 export default function inputButton() {
     const mainContent = document.querySelector('.main-content');
@@ -27,22 +24,11 @@ export default function inputButton() {
  async function clickSearch() {
     const input = document.querySelector('#input');
     let search = input.value;
-    let weather = await getWeather(search);
-    populatePage(weather.loc, weather.locCapital, weather.temperature);
-}
-
-async function getWeather(location) {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=a732470edfbc4cbdb9220158230708&q=${location}`, { mode: 'cors' }).catch();
-    const weather = await response.json();
-    console.log(weather.current.temp_f);
-    let temperature = weather.current.temp_f;
-    let loc = weather.location.name;
-    let locCapital = weather.location.country;
-    if (locCapital == 'United States of America') {
-        locCapital = weather.location.region;
-    }
-    console.log(weather)
-    return {temperature, loc, locCapital}
+    let weather = await getCurrentWeather(search);
+    getForecast(search);
+    if (weather.location.country == 'United States of America')
+    {weather.location.country = weather.location.region}
+    populatePage(weather.location.name, weather.location.country, weather.current.temp_f);
 }
 
 function populatePage(location, country, temperature) {
