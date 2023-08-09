@@ -120,6 +120,36 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/components/createAnElement.js":
+/*!*******************************************!*\
+  !*** ./src/components/createAnElement.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createAnElement)\n/* harmony export */ });\nfunction createAnElement(element, classList, innerHTML) {\n    const newElement = document.createElement(`${element}`);\n    newElement.classList.add(`${classList}`);\n    newElement.innerHTML = innerHTML;\n    return newElement\n}\n\n//# sourceURL=webpack://weather-app/./src/components/createAnElement.js?");
+
+/***/ }),
+
+/***/ "./src/handleWeather/CurrentWeather.js":
+/*!*********************************************!*\
+  !*** ./src/handleWeather/CurrentWeather.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getCurrentWeather)\n/* harmony export */ });\nasync function getCurrentWeather(weatherlocation) {\n    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=a732470edfbc4cbdb9220158230708&q=${weatherlocation}`, { mode: 'cors' });\n    const weather = await response.json();\n    let current = weather.current;\n    let location = weather.location;\n    console.log(current);\n    console.log(location);\n    return {current, location}\n}\n\n//# sourceURL=webpack://weather-app/./src/handleWeather/CurrentWeather.js?");
+
+/***/ }),
+
+/***/ "./src/handleWeather/forecast.js":
+/*!***************************************!*\
+  !*** ./src/handleWeather/forecast.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getForecast)\n/* harmony export */ });\nasync function getForecast(weatherlocation) {\n    const response = await fetch (`http://api.weatherapi.com/v1/forecast.json?key=a732470edfbc4cbdb9220158230708&q=${weatherlocation}&days=3`, {mode: 'cors'});\n    const forecast = await response.json();\n    console.log(forecast);\n    return forecast\n}\n\n//# sourceURL=webpack://weather-app/./src/handleWeather/forecast.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -136,7 +166,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _int
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ inputButton)\n/* harmony export */ });\nfunction createAnElement(element, classList, innerHTML) {\n    const newElement = document.createElement(`${element}`);\n    newElement.classList.add(`${classList}`);\n    newElement.innerHTML = innerHTML;\n    return newElement\n}\n\nfunction inputButton() {\n    const mainContent = document.querySelector('.main-content');\n    const queryContainer = createAnElement('div', 'query-container', null);\n\n    const locationInp = document.createElement('input');\n    locationInp.type = 'text';\n    locationInp.classList.add('location-input');\n    locationInp.setAttribute('id', 'input');\n\n    const searchBtn = document.createElement('button');\n    searchBtn.classList.add('location-input');\n    searchBtn.setAttribute('id', 'button');\n    searchBtn.innerHTML = 'Search';\n    searchBtn.addEventListener('click', clickSearch)\n\n    queryContainer.append(locationInp, searchBtn)\n    mainContent.append(queryContainer);\n}\n\n async function clickSearch() {\n    const input = document.querySelector('#input');\n    let search = input.value;\n    let weather = await getWeather(search);\n    populatePage(weather.loc, weather.locCapital, weather.temperature);\n}\n\nasync function getWeather(location) {\n    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=a732470edfbc4cbdb9220158230708&q=${location}`, { mode: 'cors' }).catch();\n    const weather = await response.json();\n    console.log(weather.current.temp_f);\n    let temperature = weather.current.temp_f;\n    let loc = weather.location.name;\n    let locCapital = weather.location.country;\n    if (locCapital == 'United States of America') {\n        locCapital = weather.location.region;\n    }\n    console.log(weather)\n    return {temperature, loc, locCapital}\n}\n\nfunction populatePage(location, country, temperature) {\n    const mainContent = document.querySelector('.main-content');\n    const subContainer = createAnElement('div', 'sub-container', null)\n    const locationDiv = createAnElement('h1', 'location', `${location}, ${country}`);\n    const temperatureDiv = createAnElement('div', 'temperature', `${temperature}° F`);\n    subContainer.append(locationDiv, temperatureDiv)\n    mainContent.prepend(subContainer);\n}\n\n//# sourceURL=webpack://weather-app/./src/interface.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ inputButton)\n/* harmony export */ });\n/* harmony import */ var _handleWeather_CurrentWeather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./handleWeather/CurrentWeather */ \"./src/handleWeather/CurrentWeather.js\");\n/* harmony import */ var _handleWeather_forecast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handleWeather/forecast */ \"./src/handleWeather/forecast.js\");\n/* harmony import */ var _components_createAnElement__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/createAnElement */ \"./src/components/createAnElement.js\");\n\n\n\n\nfunction inputButton() {\n    const mainContent = document.querySelector('.main-content');\n    const queryContainer = (0,_components_createAnElement__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('div', 'query-container', null);\n\n    const locationInp = document.createElement('input');\n    locationInp.type = 'text';\n    locationInp.classList.add('location-input');\n    locationInp.setAttribute('id', 'input');\n\n    const searchBtn = document.createElement('button');\n    searchBtn.classList.add('location-input');\n    searchBtn.setAttribute('id', 'button');\n    searchBtn.innerHTML = 'Search';\n    searchBtn.addEventListener('click', clickSearch)\n\n    queryContainer.append(locationInp, searchBtn)\n    mainContent.append(queryContainer);\n}\n\n async function clickSearch() {\n    const input = document.querySelector('#input');\n    let search = input.value;\n    let weather = await (0,_handleWeather_CurrentWeather__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(search);\n    (0,_handleWeather_forecast__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(search);\n    if (weather.location.country == 'United States of America')\n    {weather.location.country = weather.location.region}\n    populatePage(weather.location.name, weather.location.country, weather.current.temp_f);\n}\n\nfunction populatePage(location, country, temperature) {\n    const mainContent = document.querySelector('.main-content');\n    const subContainer = (0,_components_createAnElement__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('div', 'sub-container', null)\n    const locationDiv = (0,_components_createAnElement__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('h1', 'location', `${location}, ${country}`);\n    const temperatureDiv = (0,_components_createAnElement__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('div', 'temperature', `${temperature}° F`);\n    subContainer.append(locationDiv, temperatureDiv)\n    mainContent.prepend(subContainer);\n}\n\n//# sourceURL=webpack://weather-app/./src/interface.js?");
 
 /***/ }),
 
