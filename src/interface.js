@@ -25,7 +25,9 @@ export default function inputButton() {
     const input = document.querySelector('#input');
     let search = input.value;
     let weather = await getCurrentWeather(search);
-    getForecast(search);
+    let forecast = await getForecast(search);
+    console.log(forecast);
+    console.log(forecast.forecast.forecastday[0]);
     if (weather.location.country == 'United States of America')
     {weather.location.country = weather.location.region}
     populatePage(weather.location.name, weather.location.country, weather.current.temp_f);
@@ -33,9 +35,11 @@ export default function inputButton() {
 
 function populatePage(location, country, temperature) {
     const mainContent = document.querySelector('.main-content');
+    const weatherContainer = createAnElement('div', 'weather-container', null);
     const subContainer = createAnElement('div', 'sub-container', null)
     const locationDiv = createAnElement('h1', 'location', `${location}, ${country}`);
     const temperatureDiv = createAnElement('div', 'temperature', `${temperature}° F`);
     subContainer.append(locationDiv, temperatureDiv)
-    mainContent.prepend(subContainer);
+    mainContent.append(weatherContainer);
+    weatherContainer.append(subContainer)
 }
