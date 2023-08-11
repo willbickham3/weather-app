@@ -2,11 +2,13 @@
 import getCurrentWeather from "./handleWeather/CurrentWeather";
 import getForecast from "./handleWeather/forecast";
 import inputButton, { populatePage } from "./pageHandlers/interface";
+import loadWeatherData from "./pageHandlers/loadPage";
 import './style.css'
-import format from "date-fns/format";
 
 populatePage();
 inputButton();
+loadWeatherData();
 console.log(getCurrentWeather('navarre fl'));
 console.log(getForecast('navarre fl'));
+
 
