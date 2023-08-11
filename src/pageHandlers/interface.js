@@ -31,13 +31,12 @@ export default function inputButton() {
     let search = input.value;
     // let weather = await getCurrentWeather(search);
     // let forecast = await getForecast(search);
-    populatePage();
     await weatherSummary(search);
     await todayForecast(search);
     // console.log(weather)
 }
 
-function populatePage() {
+export function populatePage() {
     const mainContent = document.querySelector('.main-content');
     const weatherContainer = createAnElement('div', 'weather-container', null, null);
     mainContent.append(weatherContainer);
