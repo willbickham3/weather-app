@@ -1,6 +1,15 @@
+:root {
+    --primary-color: #19218B;
+    --secondary-color: #616BFF;
+    --tertiary-color: #424EED;
+    --accent-color: #A1820D;
+    --second-accent-color: #EDCA42;
+}
+
 html { 
-    background: url('./images/rainy.jpg') no-repeat center center fixed; 
-    background-size: cover;
+    /* background: url('./images/rainy.jpg') no-repeat center center fixed;  */
+    /* background-size: cover; */
+    background-color: var(--primary-color);
     height: 100%;
   }
 
@@ -21,24 +30,32 @@ h1 {
 
 .main-content {
     display: grid;
-    grid-template-columns: 0.5fr 1.5fr 0.5fr;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
     grid-template-rows: 0.3fr 1fr 1fr;
     height: 100%;
+    row-gap: 2rem;
 }
 .weather-container {
     display: flex;
     flex-direction: column;
-    border: 3px solid black;
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
     grid-column: 2;
     grid-row: 2 / 4;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     gap: 1em;
 }
 
 .sub-container {
     display: flex;
     flex-direction: column;
-    color: aliceblue;
-    grid-column: 2;
+    color: var(--second-accent-color);
+    grid-column: 1;
+    padding: 1rem;
+    border-radius: 7px;
+    background-color: var(--tertiary-color);
 }
 
 .query-container {
@@ -46,10 +63,9 @@ h1 {
     grid-column: 1 / 4;
     grid-row: 1;
     align-items: center;
-    border-bottom: 2px solid grey;
     justify-content: center;
     gap: 0.5rem;
-    background-color: #87ceeb;
+    background-color: var(--secondary-color);
 }
 
 input {
