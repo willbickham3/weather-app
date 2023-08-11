@@ -1,7 +1,4 @@
-import getCurrentWeather from "../handleWeather/CurrentWeather";
-import getForecast from "../handleWeather/forecast";
 import createAnElement from "../components/createAnElement";
-import weatherCard from "../components/weatherCard";
 import weatherSummary from "./weatherSummary";
 import todayForecast from "./todayForecast";
 
