@@ -8,6 +8,4 @@ const predeterminedLocation = "Navarre, FL";
 export default async function loadWeatherData() {
     await weatherSummary(predeterminedLocation);
     await todayForecast(predeterminedLocation);
-
-    // Any additional code that relies on the completion of both functions
 }
