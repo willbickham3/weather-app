@@ -3,12 +3,13 @@ import getForecast from "../handleWeather/forecast";
 import createAnElement from "../components/createAnElement";
 import weatherCard from "../components/weatherCard";
 import weatherSummary from "./weatherSummary";
+import todayForecast from "./todayForecast";
 
 // weatherCard(heading, heading2, content, footing)
 
 export default function inputButton() {
     const mainContent = document.querySelector('.main-content');
-    const queryContainer = createAnElement('div', 'query-container', null);
+    const queryContainer = createAnElement('div', 'query-container', null, null);
 
     const locationInp = document.createElement('input');
     locationInp.type = 'text';
@@ -28,15 +29,16 @@ export default function inputButton() {
  async function clickSearch() {
     const input = document.querySelector('#input');
     let search = input.value;
-    let weather = await getCurrentWeather(search);
-    let forecast = await getForecast(search);
+    // let weather = await getCurrentWeather(search);
+    // let forecast = await getForecast(search);
     populatePage();
-    weatherSummary();
-    console.log(weather)
+    await weatherSummary(search);
+    await todayForecast(search);
+    // console.log(weather)
 }
 
 function populatePage() {
     const mainContent = document.querySelector('.main-content');
-    const weatherContainer = createAnElement('div', 'weather-container', null);
+    const weatherContainer = createAnElement('div', 'weather-container', null, null);
     mainContent.append(weatherContainer);
 }
