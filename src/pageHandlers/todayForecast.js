@@ -7,12 +7,13 @@ export default async function todayForecast(search) {
     let weather = await getCurrentWeather(search);
     let forecast = await getForecast(search);
 
-    function timeofdayContent(todName, temperature, precipitationChance) {
+    function timeofdayContent(todName, temperature, precipitationChance, imgsrc) {
         let timeofdayname = createAnElement('div', `${todName}`, null, `${todName}`);
         let todtemperature = createAnElement('div', `${temperature}`, null, `${temperature}°`);
-        // let todweatherImage = createAnElement('img', `todImage`, img);
+        let todweatherImage = createAnElement('img', `todImage`, null, null);
+        todweatherImage.src = imgsrc;
         let todprecipitationChance = createAnElement('div', 'precipitation', null, `${precipitationChance}`);
-        return { timeofdayname, todtemperature, todprecipitationChance };
+        return { timeofdayname, todtemperature, todweatherImage, todprecipitationChance };
     }
 
     const forecastContainer = createAnElement('div', 'forecast-container', 'tod-bullets', '');
@@ -26,14 +27,13 @@ export default async function todayForecast(search) {
 
     for (const section of timeOfDaySections) {
         const sectionDiv = createAnElement('div', 'timeofday', section.name.toLowerCase(), null);
-        const sectionContent = timeofdayContent(section.name, forecast.forecast.forecastday[0].hour[section.hour].temp_f, forecast.forecast.forecastday[0].hour[section.hour].chance_of_rain);
-        sectionDiv.append(sectionContent.timeofdayname, sectionContent.todtemperature, sectionContent.todprecipitationChance);
+        const sectionContent = timeofdayContent(section.name, forecast.forecast.forecastday[section.day].hour[section.hour].temp_f, forecast.forecast.forecastday[section.day].hour[section.hour].chance_of_rain, forecast.forecast.forecastday[section.day].hour[section.hour].condition.icon);
+        sectionDiv.append(sectionContent.timeofdayname, sectionContent.todtemperature, sectionContent.todweatherImage, sectionContent.todprecipitationChance);
         forecastContainer.append(sectionDiv); }
 
 
-    weatherCard(`Today's Forecast for ${weather.location.name}`, `${weather.location.region}`, 'todays-forecast', '', '');
+    weatherCard(`Today's Forecast for ${weather.location.name}, ${weather.location.region}`, '', 'todays-forecast', '', '');
     // console.log(forecastContainer)
     let todaysForecast = document.querySelector('#todays-forecast');
     todaysForecast.append(forecastContainer);
-
 }
