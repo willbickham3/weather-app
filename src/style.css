@@ -51,11 +51,16 @@ h1 {
 .sub-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     color: var(--second-accent-color);
     grid-column: 1;
     padding: 1rem;
     border-radius: 7px;
     background-color: var(--tertiary-color);
+}
+
+.weather-content {
+    font-size: 1.2em;
 }
 
 .query-container {
