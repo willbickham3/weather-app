@@ -1,6 +1,7 @@
 import createAnElement from "../components/createAnElement";
 import weatherSummary from "./weatherSummary";
 import todayForecast from "./todayForecast";
+import weatherRemoval from "./weatherRemoval";
 
 // weatherCard(heading, heading2, content, footing)
 
@@ -28,6 +29,7 @@ export default function inputButton() {
     let search = input.value;
     // let weather = await getCurrentWeather(search);
     // let forecast = await getForecast(search);
+    weatherRemoval();
     await weatherSummary(search);
     await todayForecast(search);
     // console.log(weather)
