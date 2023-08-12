@@ -10,9 +10,11 @@ export default async function todayForecast(search) {
     function timeofdayContent(todName, temperature, precipitationChance, imgsrc) {
         let timeofdayname = createAnElement('div', `${todName}`, null, `${todName}`);
         let todtemperature = createAnElement('div', `${temperature}`, null, `${temperature}°`);
+
         let todweatherImage = createAnElement('img', `todImage`, null, null);
         todweatherImage.src = imgsrc;
-        let todprecipitationChance = createAnElement('div', 'precipitation', null, `${precipitationChance}`);
+
+        let todprecipitationChance = createAnElement('div', 'precipitation', null, `${precipitationChance}% Precip.`);
         return { timeofdayname, todtemperature, todweatherImage, todprecipitationChance };
     }
 
@@ -27,13 +29,18 @@ export default async function todayForecast(search) {
 
     for (const section of timeOfDaySections) {
         const sectionDiv = createAnElement('div', 'timeofday', section.name.toLowerCase(), null);
+
         const sectionContent = timeofdayContent(section.name, forecast.forecast.forecastday[section.day].hour[section.hour].temp_f, forecast.forecast.forecastday[section.day].hour[section.hour].chance_of_rain, forecast.forecast.forecastday[section.day].hour[section.hour].condition.icon);
+
         sectionDiv.append(sectionContent.timeofdayname, sectionContent.todtemperature, sectionContent.todweatherImage, sectionContent.todprecipitationChance);
-        forecastContainer.append(sectionDiv); }
 
+        forecastContainer.append(sectionDiv); 
+    }
+    let todaysForecast = createAnElement('div', 'todays-forecast', null , '');
+    todaysForecast.append(forecastContainer)
 
-    weatherCard(`Today's Forecast for ${weather.location.name}, ${weather.location.region}`, '', 'todays-forecast', '', '');
+    weatherCard(`Today's Forecast for ${weather.location.name}, ${weather.location.region}`, todaysForecast, '', 'todays-forecast');
     // console.log(forecastContainer)
-    let todaysForecast = document.querySelector('#todays-forecast');
-    todaysForecast.append(forecastContainer);
+    // let todaysForecast = document.querySelector('#todays-forecast');
+    // todaysForecast.append(forecastContainer);
 }
