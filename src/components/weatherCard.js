@@ -4,10 +4,11 @@ import createAnElement from "./createAnElement";
         const weatherContainer = document.querySelector('.weather-container');
 
         const container = createAnElement('div', 'sub-container', null, null);
-        const headingDiv = createAnElement('h1', 'weather-heading', null, `${heading}`);
+        const headingDiv = createAnElement('div', 'weather-heading', null, '');
         const contentDiv = createAnElement('div', 'weather-content', id, null);
         const footingDiv = createAnElement('div', 'weather-footing', null, `${footing}`);
 
+        headingDiv.append(heading);
         contentDiv.append(content);
 
         container.append(headingDiv, contentDiv, footingDiv);
