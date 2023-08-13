@@ -14,7 +14,7 @@ export default async function todayForecast(search) {
         let todweatherImage = createAnElement('img', `todImage`, null, null);
         todweatherImage.src = imgsrc;
 
-        let todprecipitationChance = createAnElement('div', 'precipitation', null, `${precipitationChance}% Precip.`);
+        let todprecipitationChance = createAnElement('div', 'precipitation', null, `${precipitationChance}`);
         return { timeofdayname, todtemperature, todweatherImage, todprecipitationChance };
     }
 
@@ -30,7 +30,12 @@ export default async function todayForecast(search) {
     for (const section of timeOfDaySections) {
         const sectionDiv = createAnElement('div', 'timeofday', section.name.toLowerCase(), null);
 
-        const sectionContent = timeofdayContent(section.name, forecast.forecast.forecastday[section.day].hour[section.hour].temp_f, forecast.forecast.forecastday[section.day].hour[section.hour].chance_of_rain, forecast.forecast.forecastday[section.day].hour[section.hour].condition.icon);
+        const sectionContent = timeofdayContent(
+            section.name, 
+            forecast.forecast.forecastday[section.day].hour[section.hour].temp_f, 
+            forecast.forecast.forecastday[section.day].hour[section.hour].condition.text, 
+            forecast.forecast.forecastday[section.day].hour[section.hour].condition.icon
+            );
 
         sectionDiv.append(sectionContent.timeofdayname, sectionContent.todtemperature, sectionContent.todweatherImage, sectionContent.todprecipitationChance);
 
@@ -40,7 +45,4 @@ export default async function todayForecast(search) {
     todaysForecast.append(forecastContainer)
 
     weatherCard(`Today's Forecast for ${weather.location.name}, ${weather.location.region}`, todaysForecast, '', 'todays-forecast');
-    // console.log(forecastContainer)
-    // let todaysForecast = document.querySelector('#todays-forecast');
-    // todaysForecast.append(forecastContainer);
 }
