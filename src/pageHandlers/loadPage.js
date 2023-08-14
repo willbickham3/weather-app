@@ -1,5 +1,6 @@
 import weatherSummary from "./weatherSummary";
 import todayForecast from "./todayForecast";
+import hourly from "./hourly";
 
 // Pre-determined value for the location
 const locations = ['Navarre, FL', 'Boston, MA', 'Marietta, OH', 'Fort Walton Beach, FL'];
@@ -9,4 +10,5 @@ const predeterminedLocation = locations[Math.floor(Math.random() * locations.len
 export default async function loadWeatherData() {
     await weatherSummary(predeterminedLocation);
     await todayForecast(predeterminedLocation);
+    await hourly(predeterminedLocation);
 }
