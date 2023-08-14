@@ -7,7 +7,7 @@ export default async function hourly(search) {
     let forecast = await getForecast(search);
 
     const header = createAnElement('div', 'hourly-weather', null, 'Hourly Forecast');
-    const hourlyForecastContainer = createAnElement('div', 'hourly-container', null, '');
+    const hourlyForecastContainer = createAnElement('div', 'hourly-container', 'slider', '');
     const footer = '';
 
 
@@ -25,7 +25,7 @@ export default async function hourly(search) {
     let i = 0;
     hourlyArray.forEach(hour => {
         let newdate = new Date(hourlyArray[i].time);
-        let formattedDate = format(newdate, "HH:mm");
+        let formattedDate = format(newdate, "HH:mm aaaa");
         let hourContainer = createAnElement('div', 'slide', null, '')
         let a = createAnElement('div', 'a', null, `${formattedDate}`);
         let b = createAnElement('img', 'b', null, '');
@@ -38,6 +38,17 @@ export default async function hourly(search) {
         i++
     })
 
+    const leftCarouselButton = createAnElement('button', 'arrow-button', 'left-button', '‹');
+    const rightCarouselButton = createAnElement('button', 'arrow-button', 'right-button', '›');
+    // let currentSlide = 0;
+    // rightCarouselButton.addEventListener('click', function() {
+    //     currentSlide++
+    // })
+    
+    // .forEach((slide, index) => {
+    //     slide.style.transform = `translateX(${100 * (index - currentSlide)})`
+    // })
+    hourlyForecastContainer.append(leftCarouselButton, rightCarouselButton);
     console.log(hourlyForecastContainer)
     weatherCard(header, hourlyForecastContainer, footer, '');
 }
