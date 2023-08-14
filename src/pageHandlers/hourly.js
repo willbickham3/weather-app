@@ -1,0 +1,43 @@
+import { format } from "date-fns";
+import createAnElement from "../components/createAnElement";
+import weatherCard from "../components/weatherCard";
+import getForecast from "../handleWeather/forecast";
+
+export default async function hourly(search) {
+    let forecast = await getForecast(search);
+
+    const header = createAnElement('div', 'hourly-weather', null, 'Hourly Forecast');
+    const hourlyForecastContainer = createAnElement('div', 'hourly-container', null, '');
+    const footer = '';
+
+
+    let hourlyArray = forecast.forecast.forecastday[0].hour;
+
+    let newdate = new Date(hourlyArray[0].time);
+    let formattedDate = format(newdate, "HH:mm");
+    console.log(formattedDate);
+    console.log(hourlyArray[0].condition.icon);
+    console.log(hourlyArray[0].temp_f);
+    console.log(hourlyArray[0].feelslike_f);
+    console.log(hourlyArray[0].condition.text)
+    console.log(hourlyArray)
+
+    let i = 0;
+    hourlyArray.forEach(hour => {
+        let newdate = new Date(hourlyArray[i].time);
+        let formattedDate = format(newdate, "HH:mm");
+        let hourContainer = createAnElement('div', 'slide', null, '')
+        let a = createAnElement('div', 'a', null, `${formattedDate}`);
+        let b = createAnElement('img', 'b', null, '');
+        b.src = hourlyArray[i].condition.icon;
+        let c = createAnElement('div', 'c', null, `${hourlyArray[i].temp_f}° F`);
+        let d = createAnElement('div', 'd', null, `Feels like: ${hourlyArray[i].feelslike_f}° F`);
+        let e = createAnElement('div', 'e', null, `${hourlyArray[i].condition.text}`);
+        hourContainer.append(a, b, c, d, e);
+        hourlyForecastContainer.append(hourContainer);
+        i++
+    })
+
+    console.log(hourlyForecastContainer)
+    weatherCard(header, hourlyForecastContainer, footer, '');
+}
