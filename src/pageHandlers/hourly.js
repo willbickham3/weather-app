@@ -14,18 +14,23 @@ export default async function hourly(search) {
     let hourlyArray = forecast.forecast.forecastday[0].hour;
 
     let newdate = new Date(hourlyArray[0].time);
-    let formattedDate = format(newdate, "HH:mm");
-    console.log(formattedDate);
-    console.log(hourlyArray[0].condition.icon);
-    console.log(hourlyArray[0].temp_f);
-    console.log(hourlyArray[0].feelslike_f);
-    console.log(hourlyArray[0].condition.text)
-    console.log(hourlyArray)
+    let formattedDate = format(newdate, "hh:mm aaaa");
+    let currentTime = new Date(forecast.current.last_updated);
+    let formattedCurrent = format(currentTime, "HH");
+    if (formattedCurrent.startsWith('0')) {
+        formattedCurrent.slice(1);
+    }
 
-    let i = 0;
-    hourlyArray.forEach(hour => {
-        let newdate = new Date(hourlyArray[i].time);
-        let formattedDate = format(newdate, "HH:mm aaaa");
+    // console.log(formattedCurrent);
+    // console.log(formattedDate);
+    // console.log(hourlyArray[0].condition.icon);
+    // console.log(hourlyArray[0].temp_f);
+    // console.log(hourlyArray[0].feelslike_f);
+    // console.log(hourlyArray[0].condition.text);
+    // console.log(hourlyArray);
+    // console.log(forecast);
+
+    for (let i = formattedCurrent; i < hourlyArray.length; i++) {
         let hourContainer = createAnElement('div', 'slide', null, '')
         let a = createAnElement('div', 'a', null, `${formattedDate}`);
         let b = createAnElement('img', 'b', null, '');
@@ -35,8 +40,7 @@ export default async function hourly(search) {
         let e = createAnElement('div', 'e', null, `${hourlyArray[i].condition.text}`);
         hourContainer.append(a, b, c, d, e);
         hourlyForecastContainer.append(hourContainer);
-        i++
-    })
+    }
 
     const leftCarouselButton = createAnElement('button', 'arrow-button', 'left-button', '‹');
     const rightCarouselButton = createAnElement('button', 'arrow-button', 'right-button', '›');
@@ -48,7 +52,8 @@ export default async function hourly(search) {
     // .forEach((slide, index) => {
     //     slide.style.transform = `translateX(${100 * (index - currentSlide)})`
     // })
-    hourlyForecastContainer.append(leftCarouselButton, rightCarouselButton);
+    hourlyForecastContainer.prepend(leftCarouselButton)
+    hourlyForecastContainer.append(rightCarouselButton);
     console.log(hourlyForecastContainer)
     weatherCard(header, hourlyForecastContainer, footer, '');
 }
