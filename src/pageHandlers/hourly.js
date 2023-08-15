@@ -31,6 +31,8 @@ export default async function hourly(search) {
     // console.log(forecast);
 
     for (let i = formattedCurrent; i < hourlyArray.length; i++) {
+        let newdate = new Date(hourlyArray[i].time);
+        let formattedDate = format(newdate, "hh:mm aaaa");
         let hourContainer = createAnElement('div', 'slide', null, '')
         let a = createAnElement('div', 'a', null, `${formattedDate}`);
         let b = createAnElement('img', 'b', null, '');
