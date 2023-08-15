@@ -62,7 +62,7 @@ body {
     padding: 1rem;
     border-radius: 7px;
     background-color: var(--tertiary-color);
-    height: 275px;
+    height: 300px;
     width: 100%;
 }
 
@@ -76,15 +76,15 @@ body {
 
 .weather-location {
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.4rem;
 }
 
 .asOf {
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .weather-content {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     grid-row: 2;
     width: 100%;
     /* overflow: hidden; */
@@ -99,18 +99,18 @@ body {
 }
 
 #current-temperature {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
 }
 
 #current-condition {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
 .content {
     grid-column: 1;
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 
 .weather-summary img {
@@ -124,7 +124,7 @@ body {
 .weather-footing {
     grid-row: 3;
     align-self: center;
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 .query-container {
@@ -139,11 +139,11 @@ body {
 
 input {
     border-radius: 7px;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .query-container button {
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-weight: 700;
     background: aliceblue;
     border-radius: 7px;
@@ -156,13 +156,13 @@ input {
 }
 
 .weather-heading {
-    font-size: 1.6em;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
 .forecast-container {
     display: flex;
-    font-size: 1.2em;
+    font-size: 1.4rem;
     justify-content: space-around;
     text-align: center;
     gap: 10px;
@@ -173,20 +173,21 @@ input {
     background-color: grey;
     border-radius: 5px;
     width: 25%;
-    border: 1px solid black;
 }
 
 /* hourly.js style */
 
 .hourly-container {
+    position: relative;
+}
+
+.slides {
     display: flex;
     width: 100%;
-    /* max-width: 800px;
-    height: 350px; */
+    max-width: 800px;
     position: relative;
     overflow: hidden;
     gap: 10px;
-    justify-content: center;
     align-items: center;
 }
 
@@ -204,5 +205,14 @@ input {
 
 .arrow-button {
     font-size: 2rem;
-    visibility: hidden;
+    position: absolute;
+    top: 35%;
+}
+
+#left-button {
+    left: 0;
+}
+
+#right-button {
+    right: 0;
 }
