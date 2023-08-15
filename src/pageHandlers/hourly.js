@@ -21,6 +21,8 @@ export default async function hourly(search) {
         formattedCurrent.slice(1);
     }
 
+    const slidesContainer = createAnElement('div', 'slides', null, '');
+
     // console.log(formattedCurrent);
     // console.log(formattedDate);
     // console.log(hourlyArray[0].condition.icon);
@@ -41,9 +43,9 @@ export default async function hourly(search) {
         let d = createAnElement('div', 'd', null, `Feels like: ${hourlyArray[i].feelslike_f}° F`);
         let e = createAnElement('div', 'e', null, `${hourlyArray[i].condition.text}`);
         hourContainer.append(a, b, c, d, e);
-        hourlyForecastContainer.append(hourContainer);
+        slidesContainer.append(hourContainer);
     }
-
+    const btnContainer = createAnElement('div', 'btn-container', null, '');
     const leftCarouselButton = createAnElement('button', 'arrow-button', 'left-button', '‹');
     const rightCarouselButton = createAnElement('button', 'arrow-button', 'right-button', '›');
     // let currentSlide = 0;
@@ -54,8 +56,7 @@ export default async function hourly(search) {
     // .forEach((slide, index) => {
     //     slide.style.transform = `translateX(${100 * (index - currentSlide)})`
     // })
-    hourlyForecastContainer.prepend(leftCarouselButton)
-    hourlyForecastContainer.append(rightCarouselButton);
-    console.log(hourlyForecastContainer)
+    btnContainer.append(leftCarouselButton, rightCarouselButton);
+    hourlyForecastContainer.append(slidesContainer, btnContainer);
     weatherCard(header, hourlyForecastContainer, footer, '');
 }
