@@ -99,12 +99,12 @@ body {
 }
 
 #current-temperature {
-    font-size: 2.5em;
+    font-size: 3rem;
     font-weight: 700;
 }
 
 #current-condition {
-    font-size: 2em;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -173,6 +173,7 @@ input {
     background-color: grey;
     border-radius: 5px;
     width: 25%;
+    border: 1px solid black;
 }
 
 /* hourly.js style */
@@ -180,11 +181,13 @@ input {
 .hourly-container {
     display: flex;
     width: 100%;
-    max-width: 800px;
-    height: 350px;
+    /* max-width: 800px;
+    height: 350px; */
     position: relative;
     overflow: hidden;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide {
@@ -194,4 +197,12 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: gray;
+    font-size: 1.3rem;
+    border-radius: 7px;
+}
+
+.arrow-button {
+    font-size: 2rem;
+    visibility: hidden;
 }
