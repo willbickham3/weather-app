@@ -3,6 +3,7 @@ import weatherSummary from "./weatherSummary";
 import todayForecast from "./todayForecast";
 import weatherRemoval from "../components/weatherRemoval";
 import hourly from "./hourly";
+import moreWeather from "./moreWeather";
 
 // weatherCard(heading, heading2, content, footing)
 
@@ -34,6 +35,7 @@ export default function inputButton() {
     await weatherSummary(search);
     await todayForecast(search);
     await hourly(search);
+    await moreWeather(search);
     // console.log(weather)
 }
 
