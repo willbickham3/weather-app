@@ -1,7 +1,7 @@
 import createAnElement from "../components/createAnElement";
 import weatherSummary from "./weatherSummary";
 import todayForecast from "./todayForecast";
-import weatherRemoval from "./weatherRemoval";
+import weatherRemoval from "../components/weatherRemoval";
 import hourly from "./hourly";
 
 // weatherCard(heading, heading2, content, footing)
