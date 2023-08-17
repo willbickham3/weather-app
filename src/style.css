@@ -222,3 +222,33 @@ input {
 #right-button {
     right: 0;
 }
+
+/* More Weather Styling */
+
+.more-stuff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1em;
+}
+
+.more-stuff > * {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.more-number {
+    margin-left: auto;
+}
+
+.more-img {
+  width: 60px;
+  height: auto;
+}
+
+/* #wind .more-img {
+    width: 40px;
+    height: auto;
+} */
