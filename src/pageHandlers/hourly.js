@@ -20,19 +20,19 @@ export default async function hourly(search) {
     if (formattedCurrent.startsWith('0')) {
         formattedCurrent.slice(1);
     }
-
+    console.log(formattedCurrent)
     const slidesContainer = createAnElement('div', 'slides', null, '');
 
-    // console.log(formattedCurrent);
-    // console.log(formattedDate);
-    // console.log(hourlyArray[0].condition.icon);
-    // console.log(hourlyArray[0].temp_f);
-    // console.log(hourlyArray[0].feelslike_f);
-    // console.log(hourlyArray[0].condition.text);
-    // console.log(hourlyArray);
-    // console.log(forecast);
+    const btnContainer = createAnElement('div', 'btn-container', null, '');
+    const leftCarouselButton = createAnElement('button', 'arrow-button', 'left-button', '‹');
+    const rightCarouselButton = createAnElement('button', 'arrow-button', 'right-button', '›');
 
-    for (let i = formattedCurrent; i < hourlyArray.length; i++) {
+    btnContainer.append(leftCarouselButton, rightCarouselButton);
+    hourlyForecastContainer.append(slidesContainer, btnContainer);
+    weatherCard(header, hourlyForecastContainer, footer, '');
+
+
+    for (let i = formattedCurrent; i < (parseInt(formattedCurrent) + 4); i++) {
         let newdate = new Date(hourlyArray[i].time);
         let formattedDate = format(newdate, "hh:mm aaaa");
         let hourContainer = createAnElement('div', 'slide', null, '')
@@ -45,18 +45,7 @@ export default async function hourly(search) {
         hourContainer.append(a, b, c, d, e);
         slidesContainer.append(hourContainer);
     }
-    const btnContainer = createAnElement('div', 'btn-container', null, '');
-    const leftCarouselButton = createAnElement('button', 'arrow-button', 'left-button', '‹');
-    const rightCarouselButton = createAnElement('button', 'arrow-button', 'right-button', '›');
-    // let currentSlide = 0;
-    // rightCarouselButton.addEventListener('click', function() {
-    //     currentSlide++
-    // })
-    
-    // .forEach((slide, index) => {
-    //     slide.style.transform = `translateX(${100 * (index - currentSlide)})`
-    // })
-    btnContainer.append(leftCarouselButton, rightCarouselButton);
-    hourlyForecastContainer.append(slidesContainer, btnContainer);
-    weatherCard(header, hourlyForecastContainer, footer, '');
+    const alltheSlides = document.querySelectorAll('.slide');
+    console.log(alltheSlides.length);
+
 }
