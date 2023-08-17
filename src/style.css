@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #19218B;
-    --secondary-color: #616BFF;
-    --tertiary-color: #424EED;
-    --accent-color: #A1820D;
-    --second-accent-color: #EDCA42;
+    --primary-color: #F8F8F8; /* Light gray for background */
+    --secondary-color: #333; /* Dark gray for text */
+    --tertiary-color: #e5e5e5; /* Use primary color for headings */
+    --aceent-color: #FFFFFF; /* White for card backgrounds */
+    --second-accent-color: #CCCCCC; /* Light gray for borders */
 }
 
 html { 
@@ -58,7 +58,7 @@ body {
     grid-template-rows: auto auto auto;
     justify-content: space-between;
     align-content: space-evenly;
-    color: var(--second-accent-color);
+    color: var(--secondary-color);
     grid-column: 1;
     padding: 1rem;
     border-radius: 7px;
@@ -137,6 +137,7 @@ body {
     justify-content: center;
     gap: 0.5rem;
     background-color: var(--secondary-color);
+    height: 4em;
 }
 
 input {
@@ -192,18 +193,18 @@ input {
     overflow: hidden;
     gap: 10px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .slide {
     border: 1px solid black;
-    min-width: 200px;
+    min-width: 175px;
     max-height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: gray;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     border-radius: 7px;
 }
 
@@ -211,6 +212,7 @@ input {
     font-size: 2rem;
     position: absolute;
     top: 35%;
+    visibility: hidden;
 }
 
 #left-button {
