@@ -32,7 +32,7 @@ export default async function hourly(search) {
     weatherCard(header, hourlyForecastContainer, footer, '');
 
 
-    for (let i = formattedCurrent; i < (parseInt(formattedCurrent) + 4); i++) {
+    for (let i = formattedCurrent; i < hourlyArray.length; i++) {
         let newdate = new Date(hourlyArray[i].time);
         let formattedDate = format(newdate, "hh:mm aaaa");
         let hourContainer = createAnElement('div', 'slide', null, '')
@@ -45,7 +45,7 @@ export default async function hourly(search) {
         hourContainer.append(a, b, c, d, e);
         slidesContainer.append(hourContainer);
     }
-    const alltheSlides = document.querySelectorAll('.slide');
+        const alltheSlides = document.querySelectorAll('.slide');
     console.log(alltheSlides.length);
 
 }
