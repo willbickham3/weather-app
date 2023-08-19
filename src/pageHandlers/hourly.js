@@ -44,6 +44,10 @@ export default async function hourly(search) {
         let e = createAnElement('div', 'e', null, `${hourlyArray[i].condition.text}`);
         hourContainer.append(a, b, c, d, e);
         slidesContainer.append(hourContainer);
+
+        if (i - formattedCurrent === 4) {
+            break
+        }
     }
         const alltheSlides = document.querySelectorAll('.slide');
     console.log(alltheSlides.length);
