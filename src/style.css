@@ -242,6 +242,7 @@ input {
     align-items: center;
     font-size: 1.1rem;
     font-weight: 700;
+    border-bottom: 1px solid var(--secondary-color);
 }
 
 .more-number {
