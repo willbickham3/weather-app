@@ -258,3 +258,29 @@ input {
     width: 40px;
     height: auto;
 } */
+
+@media (max-width: 768px) {
+    .main-content {
+        justify-content: center;
+    }
+
+    .weather-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sub-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 65%;
+    }
+
+    .weather-summary {
+        display: flex;
+        flex-direction: column;
+    }
+}
