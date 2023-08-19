@@ -1,2 +1,23 @@
-/node_modules
+# Ignore node_modules directory (dependencies)
+node_modules/
+
+# Ignore build artifacts and distribution folders
 dist/
+build/
+out/
+*.bundle.js
+
+# Ignore environment-specific files (example: .env)
+.env
+
+# Ignore npm/Yarn lock files
+package-lock.json
+yarn.lock
+
+# Ignore editor-specific files and folders
+.vscode/
+.idea/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
