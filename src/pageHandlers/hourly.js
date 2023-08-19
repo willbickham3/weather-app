@@ -32,7 +32,7 @@ export default async function hourly(search) {
     weatherCard(header, hourlyForecastContainer, footer, '');
 
 
-    for (let i = formattedCurrent; i < hourlyArray.length; i++) {
+    for (let i = formattedCurrent; i < formattedCurrent + 5 && i < hourlyArray.length; i++) {
         let newdate = new Date(hourlyArray[i].time);
         let formattedDate = format(newdate, "hh:mm aaaa");
         let hourContainer = createAnElement('div', 'slide', null, '')
