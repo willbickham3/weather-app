@@ -287,7 +287,7 @@ input {
 
 @media (max-width: 500px) {
     .sub-container {
-        width: 100%;
+        width: 90%;
         height: auto;
     }
 
@@ -322,6 +322,9 @@ input {
 
     .forecast-container {
         gap: 0px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
     }
 
     .timeofday {
@@ -329,10 +332,14 @@ input {
         border: none;
         border-radius: none;
         padding: 0.5em;
+        width: 100%;
     }
 
     .timeofday + .timeofday {
-        border-left: 1px solid var(--secondary-color);
         border-radius: 0px;
+    }
+
+    #evening, #overnight {
+        border-top: 1px solid var(--secondary-color);
     }
 }
