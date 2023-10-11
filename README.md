@@ -9,6 +9,8 @@ This is my take on a weather application! I have been progressing through [The O
 
 I am currently back in school for my B.S. in Computer Science so I am trying to juggle school, personal projects, parenting and showing old projects the love they deserve!
 
+I'm currently working on a [Battleship](https://github.com/willbickham3/battleship) project!
+
 This project is a weather application that allows a user to look at local and foreign weather by search. It uses WeatherAPI to generate accurate weather.
 
 ## Features
