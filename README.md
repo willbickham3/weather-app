@@ -1,11 +1,6 @@
 # Project Name
 
-Weather4You
-
-## Table of Contents (if applicable)
-- [Overview](#overview)
-- [Features](#features)
-  - [Installation](#installation)
+Weather4You { You can view the live here -> [Weather4You](https://willbickham3.github.io/weather-app/) }
 
 
 ## Overview
