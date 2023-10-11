@@ -5,7 +5,7 @@ Weather4You { You can view the live here -> [Weather4You](https://willbickham3.g
 
 ## Overview
 
-This is my take on a weather application! I have been progressing through [The Odin Project](theodinproject.com) for roughly a year and half while being a stay-at-home parent. This project is currently my pride and joy due to it being the first project I made that uses an API to display information!
+This is my take on a weather application! I have been progressing through [The Odin Project](https://www.theodinproject.com/) for roughly a year and half while being a stay-at-home parent. This project is currently my pride and joy due to it being the first project I made that uses an API to display information!
 
 I am currently back in school for my B.S. in Computer Science so I am trying to juggle school, personal projects, parenting and showing old projects the love they deserve!
 
