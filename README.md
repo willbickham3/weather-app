@@ -1,6 +1,6 @@
-# Project Name
+# Weather4You
 
-Weather4You { You can view the live here -> [Weather4You](https://willbickham3.github.io/weather-app/) }
+{ You can view the live here -> [Weather4You](https://willbickham3.github.io/weather-app/) }
 
 
 ## Overview
